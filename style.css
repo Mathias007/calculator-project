@@ -32,7 +32,7 @@ body {
 
 .calculator {
     margin: 20vh auto 10vh auto;
-    width: 33vw;
+    max-width: 33vw;
     height: 70vh;
     display: grid;
     justify-content: center;
@@ -65,8 +65,16 @@ body {
     color: #ffffff;
 }
 
+.calculator__keyboard {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: (minmax(120px, auto) repeat(5, 80px));
+}
+
 .calculator__button {
     cursor: pointer;
+    padding: 10px;
     border: 0;
     background: rgb(254, 254, 254);
     background: linear-gradient(
@@ -75,6 +83,12 @@ body {
         rgba(246, 246, 246, 1) 100%
     );
     outline: none;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.calculator__button:hover {
+    opacity: 1;
 }
 
 .calculator__button--operation {
@@ -91,4 +105,12 @@ body {
     grid-column: span 2;
     background: rgb(230, 47, 137);
     color: #ffffff;
+}
+
+.calculator__button:nth-last-child(-n + 1) {
+    border-radius: 0 0 5px 0;
+}
+
+.calculator__button:nth-last-child(3) {
+    border-radius: 0 0 0 5px;
 }
