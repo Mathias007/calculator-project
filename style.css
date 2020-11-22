@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial, sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+body {
+    background: rgb(151, 90, 189);
+    background: -moz-linear-gradient(
+        90deg,
+        rgba(151, 90, 189, 1) 0%,
+        rgba(190, 111, 176, 1) 50%,
+        rgba(247, 147, 111, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+        90deg,
+        rgba(151, 90, 189, 1) 0%,
+        rgba(190, 111, 176, 1) 50%,
+        rgba(247, 147, 111, 1) 100%
+    );
+    background: linear-gradient(
+        90deg,
+        rgba(151, 90, 189, 1) 0%,
+        rgba(190, 111, 176, 1) 50%,
+        rgba(247, 147, 111, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#975abd",endColorstr="#f7936f",GradientType=1);
+}
+
+.calculator {
+}
+
+.calculator__result {
+}
+
+.calculator__display-previous-operations {
+}
+
+.calculator__display-actual-operation {
+}
+
+.calculator__button {
+}
+
+.calculator__button--operation {
+}
+
+.calculator__button--equal {
+}
