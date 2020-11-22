@@ -30,3 +30,14 @@ numbers.forEach((number) => {
         updateResult();
     });
 });
+
+const cleanResult = () => {
+    actualOperation = "";
+    previousOperation = "";
+    selectedOperation = undefined;
+};
+
+cleanButton.addEventListener("click", () => {
+    cleanResult();
+    updateResult();
+});
