@@ -17,7 +17,7 @@ const calculate = () => {
     const previous = parseFloat(previousOperation);
     const actual = parseFloat(actualOperation);
 
-    if (isNaN(previous) || isNaN(actual)) return;
+    if (isNaN(previous) || isNaN(actual)) actualOperation = "Błąd!";
 
     switch (selectedOperation) {
         case "+":
@@ -31,15 +31,11 @@ const calculate = () => {
             break;
         case "/":
             actual === 0
-                ? (calculation = "Herezja!")
+                ? (calculation = "Błąd!")
                 : (calculation = previous / actual);
             break;
         case "%":
-            if (!actual) {
-                calculation = previous / 100;
-            } else {
-                calculation = (previous / 100) * actual;
-            }
+            calculation = (previous / 100) * actual;
             break;
         default:
             return;
@@ -67,11 +63,10 @@ const chooseOperation = (operator) => {
         if (
             actualOperation.toString() === "0" &&
             previous[previous.length - 1] === "/"
-        ) {
-            actualOperation = "Nieprawidłowa operacja";
+        )
             return;
-        }
     }
+
     selectedOperation = operator;
     previousOperation = actualOperation;
     actualOperation = "";
@@ -87,7 +82,17 @@ const updateResult = () => {
 };
 
 const addNumber = (number) => {
-    actualOperation = actualOperation.toString() + number.toString();
+    if (number === ",") {
+        actualOperation = actualOperation.toString() + ".";
+    } else {
+        actualOperation = actualOperation.toString() + number.toString();
+    }
+};
+
+const cleanResult = () => {
+    actualOperation = "";
+    previousOperation = "";
+    selectedOperation = undefined;
 };
 
 numbers.forEach((number) => {
@@ -96,12 +101,6 @@ numbers.forEach((number) => {
         updateResult();
     });
 });
-
-const cleanResult = () => {
-    actualOperation = "";
-    previousOperation = "";
-    selectedOperation = undefined;
-};
 
 operators.forEach((operator) => {
     operator.addEventListener("click", () => {
