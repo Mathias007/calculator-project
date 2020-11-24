@@ -13,29 +13,46 @@ let selectedOperation = undefined;
 
 const calculate = () => {
     let calculation;
-    if (!previousOperation || !actualOperation) return;
+
+    // if (!previousOperation || !actualOperation) return;
     const previous = parseFloat(previousOperation);
     const actual = parseFloat(actualOperation);
 
-    if (isNaN(previous) || isNaN(actual)) actualOperation = "Błąd!";
+    if (isNaN(previous)) {
+        actualOperation = "Błąd!";
+        return;
+    }
+
+    if (isNaN(actual)) calculation = previous;
 
     switch (selectedOperation) {
         case "+":
-            calculation = previous + actual;
+            isNaN(actual)
+                ? (calculation = previous)
+                : (calculation = previous + actual);
             break;
         case "-":
-            calculation = previous - actual;
+            isNaN(actual)
+                ? (calculation = previous)
+                : (calculation = previous - actual);
             break;
         case "×":
-            calculation = previous * actual;
+            isNaN(actual)
+                ? (calculation = previous)
+                : (calculation = previous * actual);
             break;
         case "/":
-            actual === 0
-                ? (calculation = "Błąd!")
-                : (calculation = previous / actual);
+            if (isNaN(actual)) calculation = previous;
+            else
+                actual === 0
+                    ? (calculation = "Błąd!")
+                    : (calculation = previous / actual);
+
             break;
         case "%":
-            calculation = (previous / 100) * actual;
+            isNaN(actual)
+                ? (calculation = previous / 100)
+                : (calculation = (previous / 100) * actual);
             break;
         default:
             return;
