@@ -84,12 +84,21 @@ body {
         rgba(246, 246, 246, 1) 100%
     );
     outline: none;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: 0.2s;
 }
 
 .calculator__button:hover {
     opacity: 1;
+}
+
+.calculator__button:active {
+    background: rgb(220, 220, 220);
+    background: radial-gradient(
+        circle,
+        rgba(220, 220, 220, 1) 0%,
+        rgba(253, 253, 254, 1) 100%
+    );
 }
 
 .calculator__button--operation {
@@ -102,11 +111,31 @@ body {
     color: #ffffff;
 }
 
+.calculator__button--operation:active {
+    background: rgb(145, 86, 226);
+    background: radial-gradient(
+        circle,
+        rgba(145, 86, 226, 1) 0%,
+        rgba(133, 71, 216, 1) 100%
+    );
+}
+
 .calculator__button--equal {
     grid-column: span 2;
     background: rgb(230, 47, 137);
     color: #ffffff;
 }
+
+.calculator__button--equal:active {
+    background: rgb(230, 47, 137);
+    background: radial-gradient(
+        circle,
+        rgba(230, 94, 137, 1) 0%,
+        rgba(230, 47, 137, 1) 100%
+
+    );
+}
+
 
 .calculator__button:nth-last-child(-n + 1) {
     border-radius: 0 0 5px 0;
